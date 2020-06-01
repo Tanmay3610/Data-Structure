@@ -33,7 +33,7 @@ void print_tree(Tree* root){
 }
 
 int main(){
-    int tree_data[] = {30, 40, 10, 50, 20, 5, 35}; 
+    int tree_data[] = {30, 40, 10, 50, 20, 5, 35}; //set of keys
     int length = sizeof(tree_data)/sizeof(tree_data[0]);
     Tree* root = NULL;
     for(int i = 0; i<length; i++)
