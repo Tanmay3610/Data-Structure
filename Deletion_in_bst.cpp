@@ -24,8 +24,8 @@ Tree* create_bst(Tree* root, int data){
     return root;    
 }
 
-//This is inorder printing of Tree
-void print_tree(Tree* root){ 
+//Inorder prining of tree
+void print_tree(Tree* root){
     if(root == NULL)
         return;
     cout<<(root->data)<<" ";
@@ -49,14 +49,12 @@ Tree* delete_key(Tree* root, int key){
     else if(key < root->data)
         root->Left = delete_key(root->Left, key);
     else{
-        if(root->Right == NULL && root->Left == NULL)
-            free(root);
-        else if(root->Right == NULL && root->Left != NULL){
+        if(root->Right == NULL){
             Tree* temp = root->Left;
             free(root);
             return temp;
         }
-        else if(root->Right != NULL && root->Left == NULL){
+        else if(root->Left == NULL){
             Tree* temp = root->Right;
             free(root);
             return temp;
@@ -65,9 +63,9 @@ Tree* delete_key(Tree* root, int key){
             Tree* temp = getInorderSuccesor(root->Right);
             root->data = temp->data;
             root->Right = delete_key(root->Right, temp->data);
+            return root;
         }
-    }
-    return root;    
+    }    
 }
 
 int main(){
@@ -82,5 +80,4 @@ int main(){
     cout<<endl;
     cout<<"Tree after deletion"<<endl;
     print_tree(root);
-    return 0;
 }
