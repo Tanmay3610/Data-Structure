@@ -96,11 +96,11 @@ Tree* deleteKey(int key, Tree* root){
     if(root == NULL)
         return root;
     if(key > root->data){
-        cout<<"Check1....";
+        //cout<<"Check....right";
         root->right = deleteKey(key, root->right);
     }        
     if(key < root->data){
-        cout<<"check....left"<<endl;
+        //cout<<"check....left"<<endl;
         root->left = deleteKey(key, root->left);
     }        
     else{
